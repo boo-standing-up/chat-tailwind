@@ -3,11 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    "plugin:react/recommended",
-    "plugin:tailwindcss/recommended",
-    "next/core-web-vitals",
-  ],
+  extends: ["plugin:react/recommended", "plugin:tailwindcss/recommended"],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
