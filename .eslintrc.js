@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ["plugin:react/recommended", "plugin:tailwindcss/recommended"],
+  extends: ["plugin:react/recommended"],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -12,5 +12,5 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react", "tailwindcss"],
-  rules: { "tailwindcss/classnames-order": "warn" },
+  rules: {},
 };
