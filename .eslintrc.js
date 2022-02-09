@@ -11,6 +11,6 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "tailwindcss"],
+  plugins: ["react"],
   rules: {},
 };
