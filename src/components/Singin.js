@@ -43,7 +43,6 @@ const Singin = ({ setName }) => {
           <button
             className="bg-blue-600 focus:bg-blue-100 text-white rounded-md  font-semibold px-4 py-3 w-full"
             type="button"
-            fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
             disabled={disabled}
