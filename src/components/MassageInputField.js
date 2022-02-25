@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Gravatar from "react-gravatar";
+import { writeUserData } from "../firebase";
 
 const MassageInputField = (name) => {
   const [text, setText] = useState("");
@@ -30,6 +31,7 @@ const MassageInputField = (name) => {
               const text = e.target.value;
               if (text === "") return;
               if (e.key === "Enter") {
+                writeUserData({ name: "Boo" }, text);
                 console.log("push firebase");
                 setText("");
               }
