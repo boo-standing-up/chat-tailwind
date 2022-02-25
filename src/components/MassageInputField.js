@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Gravatar from "react-gravatar";
 
 const MassageInputField = (name) => {
-  const email = name;
+  const [text, setText] = useState("");
+  const [composition, setComposition] = useState(false);
+  const email = "k@mo";
 
   return (
     <div className="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4">
       <div>
         <div className="flex items-center justify-center "></div>
         <Gravatar
-          md5={email}
+          email={email}
           rating="pg"
           default="retro"
           className="h-10 w-10 rounded-full bg-indigo-500"
@@ -19,8 +21,24 @@ const MassageInputField = (name) => {
         <div className="relative w-full">
           <input
             type="text"
+            value={text}
+            onChange={(e) => {
+              setText(e.target.value);
+            }}
+            onKeyDown={(e) => {
+              if (composition) return;
+              const text = e.target.value;
+              if (text === "") return;
+              if (e.key === "Enter") {
+                console.log("push firebase");
+                setText("");
+              }
+            }}
+            onCompositionStart={() => setComposition(true)}
+            onCompositionEnd={() => setComposition(false)}
             className="flex w-full border rounded-xl focus:outline-none focus:border-indigo-300 pl-4 h-10"
           />
+
           <button className="absolute flex items-center justify-center h-full w-12 right-0 top-0 text-gray-400 hover:text-gray-600">
             <svg
               className="w-6 h-6"
