@@ -1,14 +1,19 @@
 import React from "react";
-// import { gravatarPath } from "../gravatar";
+import Gravatar from "react-gravatar";
 
 const MassageInputField = (name) => {
-  // const avatarPath = gravatarPath();
+  const email = name;
 
   return (
     <div className="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4">
       <div>
-        <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0"></div>
-        {/* <img src={avatarPath} /> */}
+        <div className="flex items-center justify-center "></div>
+        <Gravatar
+          md5={email}
+          rating="pg"
+          default="retro"
+          className="h-10 w-10 rounded-full bg-indigo-500"
+        />
       </div>
       <div className="flex-grow ml-4">
         <div className="relative w-full">
