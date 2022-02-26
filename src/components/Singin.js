@@ -16,7 +16,7 @@ const Singin = ({ setName }) => {
 
   return (
     <div className="flex items-center justify-center h-screen bg-blue-100">
-      <div className="bg-white rounded-2xl border shadow-xl p-10 w-1/2 md:w-2/3 lg:w-1/3">
+      <div className="bg-white rounded-2xl border shadow-xl p-10 w-3/4 md:w-2/3 lg:w-1/3">
         <div className="flex flex-col items-center space-y-4">
           <h1 className="font-bold text-2xl text-gray-700 text-center">
             チャットアプリへようこそ！
