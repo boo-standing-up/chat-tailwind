@@ -40,7 +40,6 @@ const MassageInputField = (name) => {
             onCompositionEnd={() => setComposition(false)}
             className="flex w-full border rounded-xl focus:outline-none focus:border-indigo-300 pl-4 h-10"
           />
-
           <button className="absolute flex items-center justify-center h-full w-12 right-0 top-0 text-gray-400 hover:text-gray-600">
             <svg
               className="w-6 h-6"
@@ -60,9 +59,15 @@ const MassageInputField = (name) => {
         </div>
       </div>
       <div className="ml-4">
-        <button className="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-1 flex-shrink-0">
-          <span>Send</span>
-          <span className="ml-2">
+        <button
+          className="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-1 flex-shrink-0"
+          disabled={text === ""}
+          onClick={() => {
+            writeUserData({ name: "Boo" }, text);
+            setText("");
+          }}
+        >
+          <span>
             <svg
               className="w-4 h-4 transform rotate-45 -mt-px"
               fill="none"
