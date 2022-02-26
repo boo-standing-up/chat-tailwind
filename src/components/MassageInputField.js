@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Gravatar from "react-gravatar";
 import { writeUserData } from "../firebase";
 
 const MassageInputField = (name) => {
+  const inputEL = useRef(null);
   const [text, setText] = useState("");
   const [composition, setComposition] = useState(false);
   const email = "k@mo";
@@ -21,6 +22,8 @@ const MassageInputField = (name) => {
       <div className="flex-grow ml-4">
         <div className="relative w-full">
           <input
+            ref={inputEL}
+            autoFocus
             type="text"
             value={text}
             onChange={(e) => {
@@ -65,6 +68,7 @@ const MassageInputField = (name) => {
           onClick={() => {
             writeUserData({ name: "Boo" }, text);
             setText("");
+            inputEL.current.focus();
           }}
         >
           <span>
