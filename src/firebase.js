@@ -24,7 +24,7 @@ const app = initializeApp(firebaseConfig);
 
 export const writeUserData = ({ name }, text) => {
   const db = getDatabase();
-  push(ref(db, "massage"), {
+  push(ref(db, "message"), {
     name,
     text: text,
   });
