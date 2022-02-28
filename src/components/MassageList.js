@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  getDatabase,
-  ref,
-  onValue,
-  limitToFirst,
-  orderByKey,
-} from "firebase/database";
+import { getDatabase, ref, onValue } from "firebase/database";
 
 const MassageList = () => {
   const [massages, setMassages] = useState([]);
