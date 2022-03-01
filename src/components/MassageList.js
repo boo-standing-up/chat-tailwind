@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
 
-const MassageList = (name) => {
-  const [messages, setMessages] = useState([]);
+const MassageList = () => {
+  const [massages, setMassages] = useState([]);
   const db = getDatabase();
   const starCountRef = ref(db, "/message");
 
@@ -19,14 +19,14 @@ const MassageList = (name) => {
         return { key, ...NameAndText };
       });
       console.log(newMessages);
-      setMessages(newMessages);
+      setMassages(newMessages);
     });
   }, []);
 
   return (
     <div className="flex flex-col h-full overflow-x-auto mb-2 ">
       <div className="flex flex-col gap-2">
-        {messages.map(({ key, name, text }) => {
+        {massages.map(({ key, name, text }) => {
           return (
             <div key={key} className="col-start-1 rounded-lg">
               <div className="flex flex-row items-center">
@@ -47,5 +47,4 @@ const MassageList = (name) => {
     </div>
   );
 };
-
 export default MassageList;
