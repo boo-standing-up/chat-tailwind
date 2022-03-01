@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { getDatabase, ref, onValue } from "firebase/database";
+import {
+  getDatabase,
+  ref,
+  onValue,
+  limitToLast,
+  query,
+} from "firebase/database";
 
 const MassageList = () => {
   const [massages, setMassages] = useState([]);
   const db = getDatabase();
-  const starCountRef = ref(db, "/message");
+  const starCountRef = query(ref(db, "/message"), limitToLast(5));
+  // const recentPostsRef = query(ref(db, 'posts'), limitToLast(100));
 
   useEffect(() => {
     onValue(starCountRef, (snapshot) => {
