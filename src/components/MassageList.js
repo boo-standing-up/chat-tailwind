@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Gravatar from "react-gravatar";
 import {
   getDatabase,
   ref,
@@ -9,6 +10,7 @@ import {
 
 const MassageList = () => {
   const [massages, setMassages] = useState([]);
+  const md5 = require("md5");
   const db = getDatabase();
   const starCountRef = query(ref(db, "/message"), limitToLast(5));
   // const recentPostsRef = query(ref(db, 'posts'), limitToLast(100));
@@ -37,8 +39,13 @@ const MassageList = () => {
           return (
             <div key={key} className="col-start-1 rounded-lg">
               <div className="flex flex-row items-center">
-                <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">
-                  A
+                <div className="flex items-center justify-center flex-shrink-0">
+                  <Gravatar
+                    md5={md5(name)}
+                    rating="pg"
+                    default="retro"
+                    className="h-10 w-10 rounded-full bg-indigo-500"
+                  />
                 </div>
                 <div className="grid relative ml-3 bg-white py-2 px-4 shadow rounded-xl">
                   <div>

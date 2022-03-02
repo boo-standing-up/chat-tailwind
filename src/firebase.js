@@ -22,7 +22,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-export const writeUserData = ({ name }, text) => {
+export const writeUserData = (name, text) => {
   const db = getDatabase();
   push(ref(db, "message"), {
     name,

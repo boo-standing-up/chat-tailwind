@@ -2,18 +2,18 @@ import React, { useRef, useState } from "react";
 import Gravatar from "react-gravatar";
 import { writeUserData } from "../firebase";
 
-const MassageInputField = (name) => {
+const MassageInputField = ({ name }) => {
   const inputEL = useRef(null);
   const [text, setText] = useState("");
   const [composition, setComposition] = useState(false);
-  const email = "k@mo";
+  const md5 = require("md5");
 
   return (
     <div className="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4">
       <div>
         <div className="flex items-center justify-center "></div>
         <Gravatar
-          email={email}
+          md5={md5(name)}
           rating="pg"
           default="retro"
           className="h-10 w-10 rounded-full bg-indigo-500"
@@ -34,7 +34,7 @@ const MassageInputField = (name) => {
               const text = e.target.value;
               if (text === "") return;
               if (e.key === "Enter") {
-                writeUserData({ name: "Boo" }, text);
+                writeUserData(name, text);
                 console.log("push firebase");
                 setText("");
               }
@@ -66,7 +66,7 @@ const MassageInputField = (name) => {
           className="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-1 flex-shrink-0"
           disabled={text === ""}
           onClick={() => {
-            writeUserData({ name: "Boo" }, text);
+            writeUserData(name, text);
             setText("");
             inputEL.current.focus();
           }}
