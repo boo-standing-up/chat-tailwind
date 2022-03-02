@@ -15,7 +15,7 @@ const MassageInputField = ({ name }) => {
         <Gravatar
           md5={md5(name)}
           rating="pg"
-          default="retro"
+          default="wavatar"
           className="h-10 w-10 rounded-full bg-indigo-500"
         />
       </div>
