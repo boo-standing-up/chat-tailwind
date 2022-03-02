@@ -12,7 +12,7 @@ const MassageList = () => {
   const [massages, setMassages] = useState([]);
   const md5 = require("md5");
   const db = getDatabase();
-  const starCountRef = query(ref(db, "/message"), limitToLast(5));
+  const starCountRef = query(ref(db, "/message"), limitToLast(15));
   // const recentPostsRef = query(ref(db, 'posts'), limitToLast(100));
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const MassageList = () => {
                   <Gravatar
                     md5={md5(name)}
                     rating="pg"
-                    default="retro"
+                    default="wavatar"
                     className="h-10 w-10 rounded-full bg-indigo-500"
                   />
                 </div>
