@@ -7,8 +7,8 @@ const Main = ({ name }) => {
     <div className="flex h-screen antialiased text-gray-800">
       <div className="flex flex-row h-full w-full overflow-x-hidden">
         <div className="flex flex-col flex-auto h-full p-6">
-          <div className="flex flex-col rounded-2xl bg-gray-100 h-screen p-4 overflow-y-hidden">
-            <div className="flex-auto overflow-clip">
+          <div className="grid grid-rows-1 rounded-2xl bg-gray-100 h-screen p-4 overflow-y-hidden">
+            <div>
               <MassageList />
             </div>
             <div>
