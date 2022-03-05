@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Gravatar from "react-gravatar";
+import MassageListItem from "./MassageListItem";
 import {
   getDatabase,
   ref,
@@ -32,29 +32,20 @@ const MassageList = () => {
     });
   }, []);
 
+  const length = massages.length;
+
   return (
     <div className="flex flex-col h-full overflow-x-auto mb-2 ">
       <div className="flex flex-col gap-2">
-        {massages.map(({ key, name, text }) => {
+        {massages.map(({ key, name, text }, index) => {
+          const isLastItem = length === index + 1;
           return (
-            <div key={key} className="col-start-1 rounded-lg">
-              <div className="flex flex-row items-center">
-                <div className="flex items-center justify-center flex-shrink-0">
-                  <Gravatar
-                    md5={md5(name)}
-                    rating="pg"
-                    default="wavatar"
-                    className="h-10 w-10 rounded-full bg-indigo-500"
-                  />
-                </div>
-                <div className="grid relative ml-3 bg-white py-2 px-4 shadow rounded-xl">
-                  <div>
-                    <div className=" text-lg font-semibold">{name}</div>
-                    <div>{text}</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <MassageListItem
+              key={key}
+              name={name}
+              text={text}
+              isLastItem={isLastItem}
+            />
           );
         })}
       </div>
