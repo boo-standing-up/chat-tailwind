@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import MassageListItem from "./MassageListItem";
+import MessageListItem from "./MessageListItem";
 import {
   getDatabase,
   ref,
@@ -8,8 +8,8 @@ import {
   query,
 } from "firebase/database";
 
-const MassageList = () => {
-  const [massages, setMassages] = useState([]);
+const MessageList = () => {
+  const [messages, setMessages] = useState([]);
   const md5 = require("md5");
   const db = getDatabase();
   const starCountRef = query(ref(db, "/message"), limitToLast(15));
@@ -28,19 +28,19 @@ const MassageList = () => {
         return { key, ...NameAndText };
       });
       console.log(newMessages);
-      setMassages(newMessages);
+      setMessages(newMessages);
     });
   }, []);
 
-  const length = massages.length;
+  const length = messages.length;
 
   return (
     <div className="flex flex-col h-full overflow-x-auto mb-2 ">
       <div className="flex flex-col gap-2">
-        {massages.map(({ key, name, text }, index) => {
+        {messages.map(({ key, name, text }, index) => {
           const isLastItem = length === index + 1;
           return (
-            <MassageListItem
+            <MessageListItem
               key={key}
               name={name}
               text={text}
@@ -52,4 +52,4 @@ const MassageList = () => {
     </div>
   );
 };
-export default MassageList;
+export default MessageList;

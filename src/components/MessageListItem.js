@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import Gravatar from "react-gravatar";
 
-const MassageListItem = ({ name, text, isLastItem }) => {
+const MessageListItem = ({ name, text, isLastItem }) => {
   const ref = useRef(null);
   const md5 = require("md5");
 
@@ -35,4 +35,4 @@ const MassageListItem = ({ name, text, isLastItem }) => {
   );
 };
 
-export default MassageListItem;
+export default MessageListItem;

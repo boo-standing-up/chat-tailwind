@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import Gravatar from "react-gravatar";
 import { writeUserData } from "../firebase";
 
-const MassageInputField = ({ name }) => {
+const MessageInputField = ({ name }) => {
   const inputEL = useRef(null);
   const [text, setText] = useState("");
   const [composition, setComposition] = useState(false);
@@ -93,4 +93,4 @@ const MassageInputField = ({ name }) => {
   );
 };
 
-export default MassageInputField;
+export default MessageInputField;
